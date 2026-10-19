@@ -105,7 +105,7 @@ function photoContent(parent, index) {
   photo.style.cssText=`--left:${left}%;--top:${top}%;--angle:${angle}deg;--delay:${i*.12}s`;
   photoContent(photo,i);document.querySelector('#photo-blooms').append(photo);
 });
-photoContent(document.querySelector('#letter-photo'),0);
+photoContent(document.querySelector('#letter-photo'),1);
 
 // One card per distinct photo; never cycle image indexes inside the galaxy.
 const uniquePhotoIndexes = config.photos.reduce((indexes, source, index) => {
