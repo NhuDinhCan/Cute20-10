@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#220b20">
+  <title>Dành cho Thanh Thương cute ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Italianno&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="letter.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <main>
+    <section class="scene loading active" id="loading" aria-label="Đang mở món quà">
+      <div class="loading-gift">🎁</div><h1>Đang mở món quà...</h1><p>Bạn chờ một chút nhé.</p>
+      <div class="loading-track"><i></i></div>
+    </section>
+    <section class="scene bouquet-scene" id="bouquet-scene" aria-hidden="true" inert>
+      <header class="dedication"><p>MỘT MÓN QUÀ NHỎ DÀNH CHO</p><h1>Thanh Thương cute</h1><span>20 / 10 &nbsp; ♡</span></header>
+      <button id="bouquet" class="bouquet" aria-label="Chạm vào bó hoa để khám phá món quà">
+        <svg id="bouquet-svg" viewBox="0 0 400 520" role="img" aria-label="Bó hoa hồng giấy gói màu hồng">
+          <defs>
+            <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff4f5"/><stop offset=".4" stop-color="#e6acbe"/><stop offset=".7" stop-color="#f9d9e4"/><stop offset="1" stop-color="#b86e8d"/></linearGradient>
+            <linearGradient id="fold"><stop stop-color="#fff7fa"/><stop offset=".6" stop-color="#ebc1d0"/><stop offset="1" stop-color="#bc7796"/></linearGradient>
+            <radialGradient id="petal"><stop stop-color="#bd4f7c"/><stop offset=".4" stop-color="#eb91b2"/><stop offset=".8" stop-color="#f6c3d6"/><stop offset="1" stop-color="#fce3ec"/></radialGradient>
+            <linearGradient id="ribbon"><stop stop-color="#b95a7e"/><stop offset=".5" stop-color="#f9c9db"/><stop offset="1" stop-color="#ad547a"/></linearGradient>
+            <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#30051f" flood-opacity=".4"/></filter>
+          </defs>
+          <g filter="url(#shadow)">
+            <path d="M62 169 103 95 169 113 224 80 297 101 345 175 276 345 206 392 129 326Z" fill="url(#fold)"/>
+            <path d="m72 156 56-30 71 174-43 72Z" fill="#fbe8ee"/><path d="m324 138-67-38-69 224 49 61Z" fill="#f5d6e2"/>
+            <g id="leaves"></g><g id="baby-breath"></g><g id="roses"></g>
+            <path d="m44 242 43-34 116 157-16 70-67-97Z" fill="url(#paper)"/>
+            <path d="m356 233-49-30-115 164 22 71 72-101Z" fill="url(#fold)"/>
+            <path d="m88 308 38-44 78 105-17 66Z" fill="url(#fold)"/><path d="m314 302-44-43-67 108 12 68Z" fill="url(#paper)"/>
+            <path d="m186 389-57 94 44-8 21 32 18-99 31 93 19-35 41 10-76-91Z" fill="url(#fold)"/>
+            <path d="M202 387c-83-85-101-3-49 8l47 2c-39 15-59 35-32 49l38-41c52 68 99 8 50-9l-45-8c45-11 65-41 31-44Z" fill="url(#ribbon)" stroke="#e6a7be" stroke-width="2"/>
+            <ellipse cx="204" cy="393" rx="14" ry="12" fill="url(#ribbon)"/>
+          </g>
+        </svg>
+        <div class="photo-blooms" id="photo-blooms"></div>
+        <span class="butterfly butterfly-one">୨୧</span><span class="butterfly butterfly-two">୨୧</span>
+      </button>
+      <p class="bouquet-hint" id="bouquet-hint">Chạm vào bó hoa nhé ♡</p>
+    </section>
+    <section class="scene universe" id="universe" aria-hidden="true" inert>
+      <div class="galaxy" id="galaxy" aria-label="Không gian ảnh và lời chúc"></div>
+      <div class="galaxy-caption"><span>DÀNH RIÊNG CHO CẬU</span><h2>Thanh Thương cute ♡</h2><p>Kéo nhẹ để xoay những yêu thương</p></div>
+      <button class="letter-button" id="open-letter">Một lá thư dành cho cậu <span>♡</span></button>
+    </section>
+  </main>
+  <nav class="controls" aria-label="Điều khiển"><button id="replay" aria-label="Xem lại từ đầu">↻</button><button id="sound" aria-pressed="false" aria-label="Bật âm thanh">♫</button></nav>
+  <dialog id="letter-dialog">
+    <button id="close-letter" class="close-letter" aria-label="Đóng lá thư">×</button>
+    <div class="sealed-letter" id="sealed-letter">
+      <p class="sealed-caption">Có một lá thư gửi đến cậu…</p>
+      <button class="mail-cover" id="unseal-letter" aria-label="Chạm vào phong thư để mở" aria-expanded="false" aria-controls="letter-content">
+        <svg viewBox="0 0 440 330" role="img" aria-label="Phong thư giấy hồng phấn, hoa nét vàng và dấu sáp trái tim">
+          <defs>
+            <linearGradient id="mail-paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4e0dc"/><stop offset=".55" stop-color="#e9c9c8"/><stop offset="1" stop-color="#cf9caa"/></linearGradient>
+            <linearGradient id="mail-front" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f7e4de"/><stop offset="1" stop-color="#e9c8c7"/></linearGradient>
+            <linearGradient id="mail-flap" x1="0" y1="0" x2=".2" y2="1"><stop stop-color="#fff3e9"/><stop offset="1" stop-color="#edd2ce"/></linearGradient>
+            <linearGradient id="mail-gold"><stop stop-color="#a97e55"/><stop offset=".45" stop-color="#e4c69b"/><stop offset="1" stop-color="#b18a65"/></linearGradient>
+            <radialGradient id="wax" cx=".32" cy=".23" r=".8"><stop stop-color="#d898a8"/><stop offset=".48" stop-color="#b86f86"/><stop offset="1" stop-color="#87425f"/></radialGradient>
+            <pattern id="paper-grain" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M0 .5H5M.5 0V5" stroke="#8f6b62" stroke-opacity=".045" stroke-width=".5"/><circle cx="3" cy="3" r=".45" fill="#fff" fill-opacity=".35"/></pattern>
+            <filter id="flap-shadow" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#724d5d" flood-opacity=".18"/></filter>
+            <filter id="wax-shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="1" dy="4" stdDeviation="3" flood-color="#783d55" flood-opacity=".35"/></filter>
+          </defs>
+          <rect x="16" y="49" width="408" height="250" rx="6" fill="#bd8e9b" opacity=".3"/>
+          <rect x="13" y="44" width="414" height="250" rx="6" fill="url(#mail-paper)"/>
+          <path d="m14 48 205 150L426 48" fill="#aa758b" opacity=".25"/>
+          <path d="m15 291 151-133 53 40 55-40 152 133Z" fill="url(#mail-front)" stroke="#c79da5" stroke-width=".7"/>
+          <rect x="23" y="55" width="394" height="229" rx="3" fill="none" stroke="url(#mail-gold)" stroke-width=".7"/>
+          <rect x="13" y="44" width="414" height="250" rx="6" fill="url(#paper-grain)"/>
+          <g class="mail-flap" filter="url(#flap-shadow)">
+            <path d="M14 45H426L233 198q-13 11-26 0Z" fill="url(#mail-flap)" stroke="#d8b8b4" stroke-width=".7"/>
+            <path d="M27 53H412L229 188q-9 8-18 0Z" fill="none" stroke="url(#mail-gold)" stroke-width=".8"/>
+            <path d="M14 45H426L233 198q-13 11-26 0Z" fill="url(#paper-grain)"/>
+            <text x="220" y="95" text-anchor="middle" fill="#b18578" font-family="serif" font-size="8" letter-spacing="3.5">A LITTLE LOVE LETTER</text>
+            <path d="M198 112h15m14 0h15m-24 0 2-3 2 3-2 3Z" stroke="#b18b6b" stroke-width=".7" fill="none"/>
+          </g>
+          <g fill="none" stroke="url(#mail-gold)" stroke-width="1" opacity=".9">
+            <path d="M36 269q39-27 37-76m-19 59q-19-10-19-24 20 1 25 15m9-14q19-7 22-23-20 2-21 13m2-17q-15-7-16-21 17 3 17 13"/>
+            <path d="M72 193q-18-11-9-23 12 0 13 12 2-20 15-15 6 13-10 20 20-6 21 8-12 12-23-2-2 15-14 9-6-11 7-9Z"/>
+            <path d="M404 268q-35-17-38-56m25 47q13-12 10-23-17 7-16 17m-13-20q-18-3-24-17 18-2 23 10m-6-15q11-12 7-24-14 9-9 20"/>
+            <path d="m43 275 4-7 4 7-4 7Zm350-83 3-5 3 5-3 5Z"/>
+          </g>
+          <g class="mail-seal" filter="url(#wax-shadow)">
+            <path d="M219 169c8-4 13 2 18 4 9 1 9 10 11 16 5 7-1 14-3 20-1 9-11 8-17 11-8 5-14-2-20-3-10-1-10-11-13-17-4-8 3-14 4-20 1-8 13-7 20-11Z" fill="url(#wax)" stroke="#bc8196"/>
+            <circle cx="220" cy="195" r="20" fill="none" stroke="#f0c4cc" stroke-opacity=".5" stroke-width=".8"/>
+            <path d="M220 204c-23-13-12-29 0-17 12-12 23 4 0 17Z" fill="#ad617c" stroke="#e8b0bd" stroke-width="1"/>
+          </g>
+          <text x="220" y="252" text-anchor="middle" fill="#85576a" font-family="Italianno, cursive" font-size="29">Thanh Thương cute</text>
+          <text x="220" y="273" text-anchor="middle" fill="#a98186" font-family="serif" font-size="7" letter-spacing="2.3">CHỈ DÀNH RIÊNG CHO CẬU · 20.10</text>
+        </svg>
+      </button>
+      <p class="sealed-hint">Chạm vào phong thư để mở ♡</p>
+    </div>
+    <div class="envelope" id="letter-content" hidden>
+      <article class="letter">
+        <header class="letter-heading"><span class="letter-date">20 THÁNG 10</span><span class="letter-heading-heart" aria-hidden="true">♡</span></header>
+        <div class="letter-layout">
+          <div class="letter-copy">
+            <span class="letter-salutation">GỬI NGƯỜI TỚ THƯƠNG</span>
+            <h2>Gửi cậu,<br>Thanh Thương cute</h2>
+            <div class="letter-divider" aria-hidden="true">✧</div>
+            <p>Chúc cậu một ngày 20/10 thật vui vẻ.</p>
+            <p>Mong cậu luôn xinh đẹp, luôn mỉm cười và được yêu thương theo cách dịu dàng nhất.</p>
+            <p>Cảm ơn cậu đã xuất hiện và khiến những ngày bình thường của tớ trở nên đặc biệt hơn.</p>
+            <p class="signature">Thương cậu thật nhiều ♡</p>
+            <span class="letter-postscript">Hôm nay và cả những ngày sau nữa.</span>
+          </div>
+          <figure class="letter-memory"><span class="photo-tape" aria-hidden="true"></span><div class="letter-photo" id="letter-photo"></div><figcaption>nụ cười tớ muốn giữ lại ♡</figcaption></figure>
+        </div>
+        <footer class="letter-bottom"><span>FOR YOU, WITH LOVE</span><span aria-hidden="true">✧ &nbsp; ♡ &nbsp; ✧</span><span>20 / 10</span></footer>
+        <svg class="letter-botanical" viewBox="0 0 160 200" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2"><path d="M15 200Q80 143 99 30M46 167Q26 130 29 112q34 8 37 32M67 132q37-8 50-39-38 1-43 18M86 87Q60 65 65 48q27 8 29 20"/><path d="M101 48q-28-18-14-37 19 0 20 19 3-31 24-24 9 20-16 31 31-9 32 13-18 18-35-3-3 24-22 15-10-17 11-14Z"/></g></svg>
+      </article>
+    </div>
+  </dialog>
+  <script src="config.js"></script><script src="script.js"></script>
+</body>
+</html>

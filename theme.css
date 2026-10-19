@@ -1,0 +1,70 @@
+/* Shared pink palette, from the opening scene to the keepsake letter. */
+:root{
+  --pink-night:#220b20;
+  --pink-deep:#421330;
+  --pink-bright:#ff98ce;
+  --pink-soft:#ffd7e9;
+  --pink-paper:#fff0f5;
+  --pink-ink:#70334e;
+  --pink-line:#d59ab6;
+  background:var(--pink-night);
+  color:var(--pink-paper);
+}
+body{
+  background:radial-gradient(ellipse at 12% 12%,#7d28513d,transparent 55%),
+    radial-gradient(ellipse at 90% 85%,#ae3d6a28,transparent 50%),var(--pink-night);
+}
+button:focus-visible{outline-color:#ffbadf}
+.loading{background:radial-gradient(ellipse at center,#8b2b624d,transparent 65%)}
+.loading h1{color:#ffe0f0}
+.loading p{color:#dcb3ca}
+.loading-track{background:#ef92be26}
+.loading-track i{background:linear-gradient(90deg,#d35999,#ffd5e9)}
+.dedication p,.dedication>span,.bouquet-hint{color:#e8b7d3}
+.dedication h1,.galaxy-caption h2{color:#ffcae6;text-shadow:0 0 26px #f16bb35c}
+.butterfly{color:#ffb8db;text-shadow:0 0 10px #f278b9}
+.universe{background:radial-gradient(ellipse at 25% 35%,#8c285932,transparent 65%),radial-gradient(ellipse at 85% 90%,#d84d8122,transparent 60%)}
+.galaxy-caption{background:radial-gradient(ellipse,#321024b3,transparent 72%);padding:8px 25px 15px}
+.galaxy-caption>span,.galaxy-caption p{color:#e1acc8}
+.wish{color:#ffadd7;text-shadow:0 0 5px #ff79be,0 0 15px #f267aa77}
+.heart-particle{color:#ff82b5;filter:drop-shadow(0 0 5px #ed5fa77a)}
+.floating-photo{border-color:#f5b1d295;background:linear-gradient(150deg,#eba6cb,#8a3b6c);box-shadow:0 0 19px #ee7fb73d}
+.bloom-photo{background:linear-gradient(145deg,#ffcee3,#ad5988);box-shadow:0 0 0 2px #ffd5e97a,0 5px 12px #520c3b60}
+.controls button,.close-letter{background:#501c3c99;border-color:#f8b3d34d;color:#ffdbed}
+.controls button[aria-pressed=true]{background:#8d2e5b99;border-color:#ffafd5;color:#fff0f8}
+.letter-button{background:linear-gradient(135deg,#7d2d559c,#4e173eab);color:#ffe1f0;border-color:#ec9ac27a;box-shadow:0 0 25px #f16ca52e}
+.letter-button:hover{background:#8f3567b8;border-color:#ffbedc}
+#letter-dialog::backdrop{background:radial-gradient(ellipse,#4e193bc2,#1b071be8);backdrop-filter:blur(9px)}
+#letter-dialog .close-letter{background:#55203f;color:#ffe6f2;border-color:#e8a5c370}
+.sealed-caption{color:#ffd7e9;text-shadow:0 0 24px #f273b04d}
+.sealed-hint{color:#e6bad1}
+/* The opened letter retains the keepsake layout with blush pink paper
+   and a pale pink Polaroid frame defined in letter.css. */
+/* Preserve shading on the illustrated envelope while shifting its paper to blush. */
+#mail-paper stop:first-child{stop-color:#fce0ec}
+#mail-paper stop:nth-child(2){stop-color:#edbed5}
+#mail-paper stop:last-child{stop-color:#ce88ad}
+#mail-front stop:first-child{stop-color:#ffe9f3}
+#mail-front stop:last-child{stop-color:#efbad3}
+#mail-flap stop:first-child{stop-color:#fff0f7}
+#mail-flap stop:last-child{stop-color:#efc6db}
+#mail-gold stop:first-child{stop-color:#ac6588}
+#mail-gold stop:nth-child(2){stop-color:#e1adc8}
+#mail-gold stop:last-child{stop-color:#b77b9d}
+#wax stop:first-child{stop-color:#f0a4c7}
+#wax stop:nth-child(2){stop-color:#c66b9b}
+#wax stop:last-child{stop-color:#963f73}
+
+/* Stronger lettering while keeping the handwritten style. */
+body,button{font-weight:600}
+.loading h1,.wish,.dedication p,.dedication>span,
+.galaxy-caption>span,.galaxy-caption p,.bouquet-hint,
+.letter-button,.sealed-hint{font-weight:600}
+.dedication h1,.galaxy-caption h2,.sealed-caption,
+#letter-content .letter h2,#letter-content .letter .signature,
+.letter-memory figcaption{font-weight:400;-webkit-text-stroke:0}
+#letter-content .letter p{font-weight:600;color:#64374d}
+#letter-content .letter-date,.letter-edition,.letter-salutation,
+.letter-postscript,.letter-bottom{font-weight:700}
+.mail-cover text{font-weight:600}
+.mail-cover text[font-family="Italianno, cursive"]{font-weight:400}
